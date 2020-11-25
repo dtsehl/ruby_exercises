@@ -7,10 +7,11 @@ To get started with TDD, see the `README.md` file in your
 =end
 
 class Matrix
-  attr_reader :rows
+  attr_reader :rows, :columns
   def initialize(input)
     @orig_array = construct_array(input)
     @rows = @orig_array
+    @columns = construct_rows(@orig_array)
   end
 
   def construct_array(input)
@@ -20,6 +21,15 @@ class Matrix
     end
     array.map! do |element|
       element.map(&:to_i)
+    end
+  end
+
+  def construct_rows(input)
+    height = input[0].count
+    width = input.count
+    output = Array.new(height){Array.new(width)}
+    input.each_with_index do |ele, index|
+      
     end
   end
 end
